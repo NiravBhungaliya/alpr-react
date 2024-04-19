@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/header";
+import Footer from "./components/footer";
+import UploadCSV from "./components/uploadCSV";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import LicensePlate from "./licensePlates";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <main className="middle-content">
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<UploadCSV />} />
+            <Route exact path="/licensePlates" element={<LicensePlate />} />
+          </Routes>
+        </BrowserRouter>
+      </main>
+      <Footer />
+    </>
   );
 }
 
